@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class Spel extends JFrame {
 
@@ -21,7 +18,7 @@ public class Spel extends JFrame {
         buttonCreate(gamePanel);
         this.setLocationRelativeTo(null);
         pack();
-        buttonRandomize(gamePanel);
+        newGame();
     }
 
     public void buttonCreate(JPanel comp) {
@@ -36,23 +33,14 @@ public class Spel extends JFrame {
         buttonEmpty.addActionListener(eventHandling);
         buttonEmpty.setVisible(false);
         comp.add(buttonEmpty);
+
+        JButton newGameButton = new JButton("Nytt spel");
+        add(newGameButton, BorderLayout.SOUTH);
+        newGameButton.addActionListener(eventHandling);
     }
 
-    public void buttonRandomize(JPanel comp)  {
-        int i = 0;
-        while(i<=100) {
-            ((JButton) comp.getComponent(randomClickableButton())).doClick(1);
-            i++;
-        }
-    }
-
-    public int randomClickableButton () {
-        int i;
-        do {
-             i = (int) (Math.random()*15);
-        }
-        while (!gameLogic.clickableButton(i));
-        return i;
+    public void newGame() {
+        gameLogic.buttonRandomize(gamePanel);
     }
 
     public static void main(String[] args) {

@@ -4,6 +4,23 @@ public class GameLogic {
 
     int emptyButtonIndex = 15;
 
+    public void buttonRandomize(JPanel comp)  {
+        int i = 0;
+        while(i<=100) {
+            ((JButton) comp.getComponent(randomClickableButton())).doClick(1);
+            i++;
+        }
+    }
+
+    public int randomClickableButton () {
+        int i;
+        do {
+            i = (int) (Math.random()*15);
+        }
+        while (!clickableButton(i));
+        return i;
+    }
+
     public boolean clickableButton(int index) {
         int above = emptyButtonIndex-4;
         int below = emptyButtonIndex+4;
@@ -41,5 +58,4 @@ public class GameLogic {
     public void setEmptyButtonIndex (int emptyButtonIndex) {
         this.emptyButtonIndex = emptyButtonIndex;
     }
-
 }
