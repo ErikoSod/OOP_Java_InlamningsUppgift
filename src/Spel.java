@@ -113,6 +113,8 @@ public class Spel extends JFrame implements ActionListener {
         }
     }
 
+    //testkommentar
+
     public static void main(String[] args) {
         Spel spel = new Spel();
     }
