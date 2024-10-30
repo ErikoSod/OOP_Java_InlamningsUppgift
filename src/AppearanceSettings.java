@@ -41,20 +41,14 @@ public class AppearanceSettings {
     }
 
     private Color convertColorFromString(String color) {
-        switch (color.toLowerCase()) {
-            case "röd":
-                return Color.RED;
-            case "grön":
-                return Color.GREEN;
-            case "blå":
-                return Color.BLUE;
-            case "svart":
-                return Color.BLACK;
-            case "vit":
-                return Color.WHITE;
-            default:
-                return null;
-        }
+        return switch (color.toLowerCase()) {
+            case "röd" -> Color.RED;
+            case "grön" -> Color.GREEN;
+            case "blå" -> Color.BLUE;
+            case "svart" -> Color.BLACK;
+            case "vit" -> Color.WHITE;
+            default -> null;
+        };
     }
 }
 
