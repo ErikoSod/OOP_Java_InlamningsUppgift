@@ -4,6 +4,7 @@ import java.awt.*;
 public class Spel extends JFrame {
 
     JPanel gamePanel = new JPanel();
+    JPanel buttonPanel = new JPanel();
     GameLogic gameLogic = new GameLogic();
     EventHandling eventHandling;
 
@@ -14,6 +15,7 @@ public class Spel extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.add(gamePanel, BorderLayout.CENTER);
+        this.add(buttonPanel, BorderLayout.SOUTH);
         gamePanel.setLayout(new GridLayout(4, 4));
         buttonCreate(gamePanel);
         this.setLocationRelativeTo(null);
@@ -35,8 +37,12 @@ public class Spel extends JFrame {
         comp.add(buttonEmpty);
 
         JButton newGameButton = new JButton("Nytt spel");
-        add(newGameButton, BorderLayout.SOUTH);
+        buttonPanel.add(newGameButton);
         newGameButton.addActionListener(eventHandling);
+
+        JButton colorSettings = new JButton("Färginställningar");
+        buttonPanel.add(colorSettings);
+        colorSettings.addActionListener(eventHandling);
     }
 
     public void newGame() {
