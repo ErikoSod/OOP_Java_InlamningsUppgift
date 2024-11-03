@@ -8,7 +8,6 @@ public class EventHandling implements ActionListener {
 
     private final JPanel gamePanel;
     private final GameLogic gameLogic;
-    //private final AppearanceSettings settings = new AppearanceSettings();
 
     public EventHandling(JPanel gamePanel, GameLogic gameLogic) {
         this.gamePanel = gamePanel;
@@ -17,21 +16,6 @@ public class EventHandling implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (((JButton) e.getSource()).getText().equals("Nytt spel")) {
-            for (Component comp : gamePanel.getComponents()) {
-                comp.setBackground(null);
-                comp.setForeground(null);
-                comp.setEnabled(true);
-            }
-            gameLogic.buttonRandomize(gamePanel);
-        }
-/*
-        if (((JButton) e.getSource()).getText().equals("Färginställningar")) {
-            settings.colorChange(gamePanel);
-        }
-
- */
 
         for (Component clickedButton : gamePanel.getComponents()) {
 
@@ -48,7 +32,6 @@ public class EventHandling implements ActionListener {
                     if (gameLogic.checkGameComplete(gamePanel)) {
 
                         for (Component comp : gamePanel.getComponents()) {
-                            comp.setBackground(Color.GREEN);
                             comp.setEnabled(false);
                         }
                         JOptionPane.showMessageDialog(gamePanel, "Grattis, du vann!");
