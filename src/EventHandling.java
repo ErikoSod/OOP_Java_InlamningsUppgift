@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 public class EventHandling implements ActionListener {
 
-    JPanel gamePanel;
-    GameLogic gameLogic;
-    AppearanceSettings settings = new AppearanceSettings();
+    private final JPanel gamePanel;
+    private final GameLogic gameLogic;
+    //private final AppearanceSettings settings = new AppearanceSettings();
 
     public EventHandling(JPanel gamePanel, GameLogic gameLogic) {
         this.gamePanel = gamePanel;
@@ -20,15 +20,18 @@ public class EventHandling implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Nytt spel")) {
             for (Component comp : gamePanel.getComponents()) {
-                comp.setBackground(Color.WHITE);
+                comp.setBackground(null);
+                comp.setForeground(null);
                 comp.setEnabled(true);
             }
             gameLogic.buttonRandomize(gamePanel);
         }
-
+/*
         if (((JButton) e.getSource()).getText().equals("Färginställningar")) {
             settings.colorChange(gamePanel);
         }
+
+ */
 
         for (Component clickedButton : gamePanel.getComponents()) {
 

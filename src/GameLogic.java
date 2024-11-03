@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class GameLogic {
 
-    int emptyButtonIndex = 15;
+    private int emptyButtonIndex = 15;
 
     public void buttonRandomize(JPanel comp)  {
         int i = 0;

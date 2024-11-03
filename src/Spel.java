@@ -3,10 +3,11 @@ import java.awt.*;
 
 public class Spel extends JFrame {
 
-    JPanel gamePanel = new JPanel();
-    JPanel buttonPanel = new JPanel();
-    GameLogic gameLogic = new GameLogic();
-    EventHandling eventHandling;
+    private final JPanel gamePanel = new JPanel();
+    private final JPanel buttonPanel = new JPanel();
+    private final GameLogic gameLogic = new GameLogic();
+    private final EventHandling eventHandling;
+    private final AppearanceSettings settings = new AppearanceSettings();
 
     public Spel() {
         this.eventHandling = new EventHandling(gamePanel, gameLogic);
@@ -42,7 +43,7 @@ public class Spel extends JFrame {
 
         JButton colorSettings = new JButton("Färginställningar");
         buttonPanel.add(colorSettings);
-        colorSettings.addActionListener(eventHandling);
+        colorSettings.addActionListener(e -> {settings.colorChange(gamePanel);});
     }
 
     public void newGame() {
