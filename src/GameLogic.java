@@ -8,7 +8,7 @@ public class GameLogic {
     public void buttonRandomize(JPanel comp)  {
         int i = 0;
         gameRandomizer = true;
-        while(i<=1) {
+        while(i<=150) {
             ((JButton) comp.getComponent(randomClickableButton())).doClick(1);
             i++;
         }
