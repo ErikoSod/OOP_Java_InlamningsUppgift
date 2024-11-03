@@ -4,12 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
-public class EventHandling implements ActionListener {
+public class GameAction implements ActionListener {
 
     private final JPanel gamePanel;
     private final GameLogic gameLogic;
 
-    public EventHandling(JPanel gamePanel, GameLogic gameLogic) {
+    public GameAction(JPanel gamePanel, GameLogic gameLogic) {
         this.gamePanel = gamePanel;
         this.gameLogic = gameLogic;
     }

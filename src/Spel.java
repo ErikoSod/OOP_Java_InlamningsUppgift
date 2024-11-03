@@ -6,11 +6,11 @@ public class Spel extends JFrame {
     private final JPanel gamePanel = new JPanel();
     private final JPanel buttonPanel = new JPanel();
     private final GameLogic gameLogic = new GameLogic();
-    private final EventHandling eventHandling;
+    private final GameAction gameAction;
     private final AppearanceSettings settings = new AppearanceSettings();
 
     public Spel() {
-        eventHandling = new EventHandling(gamePanel, gameLogic);
+        gameAction = new GameAction(gamePanel, gameLogic);
         setVisible(true);
         setTitle("Spel");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,10 +30,10 @@ public class Spel extends JFrame {
             component.add(new JButton(String.valueOf(i)));
         }
         for (Component c : gamePanel.getComponents()) {
-            ((JButton)c).addActionListener(eventHandling);
+            ((JButton)c).addActionListener(gameAction);
         }
         JButton buttonEmpty = new JButton("0");
-        buttonEmpty.addActionListener(eventHandling);
+        buttonEmpty.addActionListener(gameAction);
         buttonEmpty.setVisible(false);
         component.add(buttonEmpty);
 

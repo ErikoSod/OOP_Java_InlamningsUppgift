@@ -3,19 +3,22 @@ import javax.swing.*;
 public class GameLogic {
 
     private int emptyButtonIndex = 15;
+    private boolean gameRandomizer = false;
 
     public void buttonRandomize(JPanel comp)  {
         int i = 0;
-        while(i<=100) {
+        gameRandomizer = true;
+        while(i<=1) {
             ((JButton) comp.getComponent(randomClickableButton())).doClick(1);
             i++;
         }
+        gameRandomizer = false;
     }
 
     public int randomClickableButton () {
         int i;
         do {
-            i = (int) (Math.random()*15);
+            i = (int) (Math.random()*16);
         }
         while (!clickableButton(i));
         return i;
@@ -39,6 +42,9 @@ public class GameLogic {
     public boolean checkGameComplete(JPanel comp) {
 
         boolean complete = false;
+        if (gameRandomizer) {
+            return false;
+        }
         for (int i = 0; i < 15; i++) {
             if(((JButton) comp.getComponent(i)).getText().equals(String.valueOf(i+1))){
                 complete = true;
